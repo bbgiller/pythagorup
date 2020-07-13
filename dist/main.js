@@ -86,14 +86,47 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\nclass Game {\n    constructor() {\n\n    }\n\n    drawCanvas(ctx) {\n        ctx.fillStyle = 'grey';\n        ctx.fillRect(0, 0, 200, 500);\n\n    }\n}\n\nmodule.exports = Game;\n\n//# sourceURL=webpack:///./src/game.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// const Shape = require('./shape');\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\nconst Rectangle = __webpack_require__(/*! ./rectangle */ \"./src/rectangle.js\");\n\n\n// window.Rectangle = Rectangle;\n// window.Shape = Shape;\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const canvas = document.getElementById('board');\n    const ctx = canvas.getContext('2d');\n    const game = new Game;\n    const rect = new Rectangle(100,200,0,'red',100, 200);\n    game.drawCanvas(ctx);\n    rect.drawRectangle(ctx)\n})\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/rectangle.js":
+/*!**************************!*\
+  !*** ./src/rectangle.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shape.js\");\n\n\nclass Rectangle extends Shape {\n    constructor(xPos, yPos, vel, color, length, width) {\n        super(xPos, yPos, vel, color);\n\n        this.length = length;\n        this.width = width;\n\n    }\n\n    area() {\n        return(\n            Math.floor(this.length * this.width) \n        )\n    }\n\n    perimeter() {\n        return(\n            Math.floor(2 * this.length) + Math.floor(2 * this.width)\n        )\n    }\n\n    diagonal() {\n        return(\n            (this.length**2 + this.width**2)**0.5\n        )\n    }\n\n    drawRectangle(ctx) {\n        ctx.fillStyle = \"red\";\n        ctx.fillRect(this.xPos, this.yPos, 50, 70)\n    }\n\n};\n\nmodule.exports = Rectangle;\n\n//# sourceURL=webpack:///./src/rectangle.js?");
+
+/***/ }),
+
+/***/ "./src/shape.js":
+/*!**********************!*\
+  !*** ./src/shape.js ***!
+  \**********************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log(\"everything working\")\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nclass Shape {\n    constructor(xPos, yPos, vel, color) {\n        this.xPos = xPos;\n        this.yPos = yPos;\n        this.vel = vel;\n        this.color = color;\n        this.destroyed = false;\n        this.stopped= false;\n    }\n};\n\n\nmodule.exports = Shape;\n\n//# sourceURL=webpack:///./src/shape.js?");
 
 /***/ })
 
