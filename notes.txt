@@ -1,0 +1,5 @@
+Piece keeps falling untl it reaches negative height of game
+Height is shifted upwards by height of piece that falls
+Shape should all start off with initial position. All y positions should be the same,
+but x positions should be different
+Y decreases until it hits zero
