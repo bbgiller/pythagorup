@@ -10,27 +10,20 @@ class Circle extends Shape {
 
     area() {
         return(
-            Math.floor(this.length * this.width) 
+            Math.floor( ( Math.pi * this.radius )**2 ) 
         )
     }
 
-    perimeter() {
-        return(
-            Math.floor(2 * this.length) + Math.floor(2 * this.width)
-        )
-    }
 
-    diagonal() {
-        return(
-            (this.length**2 + this.width**2)**0.5
-        )
-    }
 
     drawCircle(ctx) {
+        
+        ctx.beginPath();
+        ctx.arc(75, 175, 50, 0, Math.PI * 2, false);
         ctx.fillStyle = "red";
-        ctx.fillRect(this.xPos, this.yPos, 50, 70)
+        ctx.fill();
     }
 
 };
 
-module.exports = Rectangle;
+module.exports = Circle;

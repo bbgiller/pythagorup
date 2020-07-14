@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/circle.js":
+/*!***********************!*\
+  !*** ./src/circle.js ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shape.js\");\n\n\nclass Circle extends Shape {\n    constructor(xPos, yPos, vel, color, radius) {\n        super(xPos, yPos, vel, color);\n\n        this.radius = radius;\n    }\n\n    area() {\n        return(\n            Math.floor( ( Math.pi * this.radius )**2 ) \n        )\n    }\n\n\n\n    drawCircle(ctx) {\n        \n        ctx.beginPath();\n        ctx.arc(75, 175, 50, 0, Math.PI * 2, false);\n        ctx.fillStyle = \"red\";\n        ctx.fill();\n    }\n\n};\n\nmodule.exports = Circle;\n\n//# sourceURL=webpack:///./src/circle.js?");
+
+/***/ }),
+
 /***/ "./src/game.js":
 /*!*********************!*\
   !*** ./src/game.js ***!
@@ -104,7 +115,7 @@ eval("\nclass Game {\n    constructor() {\n\n    }\n\n    drawCanvas(ctx) {\n   
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// const Shape = require('./shape');\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\nconst Rectangle = __webpack_require__(/*! ./rectangle */ \"./src/rectangle.js\");\nconst Triangle = __webpack_require__(/*! ./triangle */ \"./src/triangle.js\");\n\n\n// window.Rectangle = Rectangle;\n// window.Shape = Shape;\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const canvas = document.getElementById('board');\n    const ctx = canvas.getContext('2d');\n    const game = new Game;\n    const rect = new Rectangle(100,200,0,'red',100, 200);\n    const triangle = new Triangle(0, 0, 0, 'blue', 3, 4, 0, 0, 0)\n    game.drawCanvas(ctx);\n    rect.drawRectangle(ctx);\n    triangle.drawTriangle(ctx);\n})\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// const Shape = require('./shape');\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\nconst Rectangle = __webpack_require__(/*! ./rectangle */ \"./src/rectangle.js\");\nconst Triangle = __webpack_require__(/*! ./triangle */ \"./src/triangle.js\");\nconst Circle = __webpack_require__(/*! ./circle */ \"./src/circle.js\");\n\n\n// window.Rectangle = Rectangle;\n// window.Shape = Shape;\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const canvas = document.getElementById('board');\n    const ctx = canvas.getContext('2d');\n    const game = new Game;\n    const rect = new Rectangle(100,200,0,'red',100, 200);\n    const triangle = new Triangle(0, 0, 0, 'blue', 3, 4, 0, 0, 0);\n    const circle = new Circle(0,0,0,'blue',200);\n    game.drawCanvas(ctx);\n    rect.drawRectangle(ctx);\n    triangle.drawTriangle(ctx);\n    circle.drawCircle(ctx);\n})\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
