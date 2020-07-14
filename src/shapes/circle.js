@@ -24,6 +24,17 @@ class Circle extends Shape {
         ctx.fill();
     }
 
+    unDraw(ctx) {
+        // debugger
+        ctx.fillStyle = '#3cb4c3'
+    }
+
+    moveDown(ctx) {
+        this.unDraw(ctx);
+        this.yPos++;
+        this.draw(ctx)
+    }
+
 };
 
 module.exports = Circle;

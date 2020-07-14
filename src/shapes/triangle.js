@@ -29,6 +29,17 @@ class Triangle extends Shape {
 
     }
 
+    unDraw(ctx) {
+        // debugger
+        ctx.fillStyle = '#3cb4c3'
+    }
+
+    moveDown(ctx) {
+        this.unDraw(ctx);
+        this.yPos++;
+        this.draw(ctx)
+    }
+
 };
 
 module.exports = Triangle;
