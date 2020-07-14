@@ -2,8 +2,8 @@ const Shape = require('./shape');
 
 
 class Circle extends Shape {
-    constructor(xPos, yPos, vel, color, radius) {
-        super(xPos, yPos, vel, color);
+    constructor(xPos, yPos, color, radius) {
+        super(xPos, yPos, color);
 
         this.radius = radius;
     }

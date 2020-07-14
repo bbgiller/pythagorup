@@ -2,8 +2,8 @@ const Shape = require('./shape');
 
 
 class Triangle extends Shape {
-    constructor(xPos, yPos, vel, color, base, height, theta1, theta2, theta3) {
-        super(xPos, yPos, vel, color);
+    constructor(xPos, yPos, color, base, height, theta1, theta2, theta3) {
+        super(xPos, yPos, color);
 
         this.base = base;
         this.height = height;

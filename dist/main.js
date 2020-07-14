@@ -86,25 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/circle.js":
-/*!***********************!*\
-  !*** ./src/circle.js ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shape.js\");\n\n\nclass Circle extends Shape {\n    constructor(xPos, yPos, vel, color, radius) {\n        super(xPos, yPos, vel, color);\n\n        this.radius = radius;\n    }\n\n    area() {\n        return(\n            Math.floor( ( Math.pi * this.radius )**2 ) \n        )\n    }\n\n\n\n    drawCircle(ctx) {\n        \n        ctx.beginPath();\n        ctx.arc(75, 175, 50, 0, Math.PI * 2, false);\n        ctx.fillStyle = \"red\";\n        ctx.fill();\n    }\n\n};\n\nmodule.exports = Circle;\n\n//# sourceURL=webpack:///./src/circle.js?");
-
-/***/ }),
-
 /***/ "./src/game.js":
 /*!*********************!*\
   !*** ./src/game.js ***!
   \*********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("\nclass Game {\n    constructor() {\n\n    }\n\n    drawCanvas(ctx) {\n        ctx.fillStyle = 'grey';\n        ctx.fillRect(0, 0, 200, 500);\n\n    }\n}\n\nmodule.exports = Game;\n\n//# sourceURL=webpack:///./src/game.js?");
+eval("const Rectangle = __webpack_require__(/*! ./shapes/rectangle */ \"./src/shapes/rectangle.js\");\nconst Circle = __webpack_require__(/*! ./shapes/circle */ \"./src/shapes/circle.js\");\nconst Triangle = __webpack_require__(/*! ./shapes/triangle */ \"./src/shapes/triangle.js\");\n\nconst COLORS = ['red', 'orange', 'blue', 'green','purple', 'yellow']\n\nclass Game {\n    constructor() {\n        this.boardHeight = 800;\n        this.boardWidth = 400;\n        this.shapeXPos = 150;\n        this.shapeYPos = 20;\n    }\n\n    drawCanvas(ctx) {\n        ctx.fillStyle = 'grey';\n        ctx.fillRect(0, 0, 400, this.boardHeight);\n\n    }\n\n    // Shapes() {\n    //     return this.randomRectangle();\n    // }\n\n    randomRectangle() { //generate new instance of rectangle with random width/height\n        const randLength = Math.floor(Math.random() * Math.floor(100));\n        const randWidth = Math.floor(Math.random() * Math.floor(100));\n\n        const randColor = COLORS[Math.floor(Math.random() * Math.floor(COLORS.length))];\n\n        return new Rectangle(this.shapeXPos, this.shapeYPos, randColor, randLength, randWidth);\n    }\n}\n\nmodule.exports = Game;\n\n//# sourceURL=webpack:///./src/game.js?");
 
 /***/ }),
 
@@ -115,40 +104,51 @@ eval("\nclass Game {\n    constructor() {\n\n    }\n\n    drawCanvas(ctx) {\n   
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// const Shape = require('./shape');\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\nconst Rectangle = __webpack_require__(/*! ./rectangle */ \"./src/rectangle.js\");\nconst Triangle = __webpack_require__(/*! ./triangle */ \"./src/triangle.js\");\nconst Circle = __webpack_require__(/*! ./circle */ \"./src/circle.js\");\n\n\n// window.Rectangle = Rectangle;\n// window.Shape = Shape;\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const canvas = document.getElementById('board');\n    const ctx = canvas.getContext('2d');\n    const game = new Game;\n    const rect = new Rectangle(100,200,0,'red',100, 200);\n    const triangle = new Triangle(0, 0, 0, 'blue', 3, 4, 0, 0, 0);\n    const circle = new Circle(0,0,0,'blue',200);\n    game.drawCanvas(ctx);\n    rect.drawRectangle(ctx);\n    triangle.drawTriangle(ctx);\n    circle.drawCircle(ctx);\n})\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// const Shape = require('./shape');\nconst Game = __webpack_require__(/*! ./game */ \"./src/game.js\");\nconst Rectangle = __webpack_require__(/*! ./shapes/rectangle */ \"./src/shapes/rectangle.js\");\nconst Triangle = __webpack_require__(/*! ./shapes/triangle */ \"./src/shapes/triangle.js\");\nconst Circle = __webpack_require__(/*! ./shapes/circle */ \"./src/shapes/circle.js\");\n\n\n// window.Rectangle = Rectangle;\n// window.Shape = Shape;\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const canvas = document.getElementById('board');\n    const ctx = canvas.getContext('2d');\n    const game = new Game;\n    const rect = game.randomRectangle();\n    window.rect = rect;\n    // const triangle = new Triangle(0, 0, 0, 'blue', 3, 4, 0, 0, 0);\n    // const circle = new Circle(0,0,0,'blue',200);\n    game.drawCanvas(ctx);\n    rect.drawRectangle(ctx);\n    triangle.drawTriangle(ctx);\n    circle.drawCircle(ctx);\n})\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/rectangle.js":
-/*!**************************!*\
-  !*** ./src/rectangle.js ***!
-  \**************************/
+/***/ "./src/shapes/circle.js":
+/*!******************************!*\
+  !*** ./src/shapes/circle.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shape.js\");\n\n\nclass Rectangle extends Shape {\n    constructor(xPos, yPos, vel, color, length, width) {\n        super(xPos, yPos, vel, color);\n\n        this.length = length;\n        this.width = width;\n\n    }\n\n    area() {\n        return(\n            Math.floor(this.length * this.width) \n        )\n    }\n\n    perimeter() {\n        return(\n            Math.floor(2 * this.length) + Math.floor(2 * this.width)\n        )\n    }\n\n    diagonal() {\n        return(\n            (this.length**2 + this.width**2)**0.5\n        )\n    }\n\n    drawRectangle(ctx) {\n        ctx.fillStyle = \"red\";\n        ctx.fillRect(this.xPos, this.yPos, 50, 70)\n    }\n\n};\n\nmodule.exports = Rectangle;\n\n//# sourceURL=webpack:///./src/rectangle.js?");
+eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shapes/shape.js\");\n\n\nclass Circle extends Shape {\n    constructor(xPos, yPos, color, radius) {\n        super(xPos, yPos, color);\n\n        this.radius = radius;\n    }\n\n    area() {\n        return(\n            Math.floor( ( Math.pi * this.radius )**2 ) \n        )\n    }\n\n\n\n    drawCircle(ctx) {\n        \n        ctx.beginPath();\n        ctx.arc(75, 175, 50, 0, Math.PI * 2, false);\n        ctx.fillStyle = \"red\";\n        ctx.fill();\n    }\n\n};\n\nmodule.exports = Circle;\n\n//# sourceURL=webpack:///./src/shapes/circle.js?");
 
 /***/ }),
 
-/***/ "./src/shape.js":
-/*!**********************!*\
-  !*** ./src/shape.js ***!
-  \**********************/
+/***/ "./src/shapes/rectangle.js":
+/*!*********************************!*\
+  !*** ./src/shapes/rectangle.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shapes/shape.js\");\n\n\nclass Rectangle extends Shape {\n    constructor(xPos, yPos, color, length, width) {\n        super(xPos, yPos, color);\n\n        this.length = length;\n        this.width = width;\n\n    }\n\n    area() {\n        return(\n            (this.length * this.width) \n        )\n    }\n\n    perimeter() {\n        return(\n            (2 * this.length) + Math.floor(2 * this.width)\n        )\n    }\n\n    diagonal() {\n        return(\n            (this.length**2 + this.width**2)**0.5\n        )\n    }\n\n    drawRectangle(ctx) {\n        ctx.fillStyle = this.color;\n        ctx.fillRect(this.xPos, this.yPos, this.length, this.width)\n    }\n\n};\n\nmodule.exports = Rectangle;\n\n//# sourceURL=webpack:///./src/shapes/rectangle.js?");
+
+/***/ }),
+
+/***/ "./src/shapes/shape.js":
+/*!*****************************!*\
+  !*** ./src/shapes/shape.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\nclass Shape {\n    constructor(xPos, yPos, vel, color) {\n        this.xPos = xPos;\n        this.yPos = yPos;\n        this.vel = vel;\n        this.color = color;\n        this.destroyed = false;\n        this.stopped= false;\n    }\n};\n\n\nmodule.exports = Shape;\n\n//# sourceURL=webpack:///./src/shape.js?");
+eval("\n\nclass Shape {\n    constructor(xPos, yPos, color) {\n        this.xPos = xPos;\n        this.yPos = yPos;\n        this.color = color;\n        this.destroyed = false;\n        this.stopped= false;\n    }\n};\n\n\nmodule.exports = Shape;\n\n//# sourceURL=webpack:///./src/shapes/shape.js?");
 
 /***/ }),
 
-/***/ "./src/triangle.js":
-/*!*************************!*\
-  !*** ./src/triangle.js ***!
-  \*************************/
+/***/ "./src/shapes/triangle.js":
+/*!********************************!*\
+  !*** ./src/shapes/triangle.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shape.js\");\n\n\nclass Triangle extends Shape {\n    constructor(xPos, yPos, vel, color, base, height, theta1, theta2, theta3) {\n        super(xPos, yPos, vel, color);\n\n        this.base = base;\n        this.height = height;\n        this.theta1 = theta1;\n        this.theta2 = theta2;\n        this.theta3 = theta3;\n     \n    }\n\n    area() {\n        return(\n            Math.floor(0.5 * (this.base * this.height)) \n        )\n    }\n\n\n    drawTriangle(ctx) {\n\n    ctx.beginPath();\n    ctx.moveTo(25, 25);\n    ctx.lineTo(105, 25);\n    ctx.lineTo(25, 105);\n    ctx.fill(); \n\n    }\n\n};\n\nmodule.exports = Triangle;\n\n//# sourceURL=webpack:///./src/triangle.js?");
+eval("const Shape = __webpack_require__(/*! ./shape */ \"./src/shapes/shape.js\");\n\n\nclass Triangle extends Shape {\n    constructor(xPos, yPos, color, base, height, theta1, theta2, theta3) {\n        super(xPos, yPos, color);\n\n        this.base = base;\n        this.height = height;\n        this.theta1 = theta1;\n        this.theta2 = theta2;\n        this.theta3 = theta3;\n     \n    }\n\n    area() {\n        return(\n            Math.floor(0.5 * (this.base * this.height)) \n        )\n    }\n\n\n    drawTriangle(ctx) {\n\n    ctx.beginPath();\n    ctx.moveTo(25, 25);\n    ctx.lineTo(105, 25);\n    ctx.lineTo(25, 105);\n    ctx.fill(); \n\n    }\n\n};\n\nmodule.exports = Triangle;\n\n//# sourceURL=webpack:///./src/shapes/triangle.js?");
 
 /***/ })
 

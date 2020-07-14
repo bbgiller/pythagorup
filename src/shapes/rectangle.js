@@ -2,8 +2,8 @@ const Shape = require('./shape');
 
 
 class Rectangle extends Shape {
-    constructor(xPos, yPos, vel, color, length, width) {
-        super(xPos, yPos, vel, color);
+    constructor(xPos, yPos, color, length, width) {
+        super(xPos, yPos, color);
 
         this.length = length;
         this.width = width;
@@ -12,13 +12,13 @@ class Rectangle extends Shape {
 
     area() {
         return(
-            Math.floor(this.length * this.width) 
+            (this.length * this.width) 
         )
     }
 
     perimeter() {
         return(
-            Math.floor(2 * this.length) + Math.floor(2 * this.width)
+            (2 * this.length) + Math.floor(2 * this.width)
         )
     }
 
@@ -29,8 +29,8 @@ class Rectangle extends Shape {
     }
 
     drawRectangle(ctx) {
-        ctx.fillStyle = "red";
-        ctx.fillRect(this.xPos, this.yPos, 50, 70)
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.xPos, this.yPos, this.length, this.width)
     }
 
 };
