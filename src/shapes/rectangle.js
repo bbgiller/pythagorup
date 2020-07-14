@@ -30,7 +30,10 @@ class Rectangle extends Shape {
 
     draw(ctx) {
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.xPos, this.yPos, this.length, this.width)
+        ctx.fillRect(this.xPos, this.yPos, this.length, this.width);
+        ctx.fillStyle = "black";
+        ctx.font = "12pt sans-serif";
+        ctx.fillText(`${this.width}`, this.xPos + 5, (this.width / 2));
     }
 
 };

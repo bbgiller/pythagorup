@@ -8,12 +8,12 @@ class Game {
     constructor() {
         this.boardHeight = 800;
         this.boardWidth = 400;
-        this.shapeXPos = 150;
+        this.shapeXPos = 200;
         this.shapeYPos = 0;
     }
 
     drawCanvas(ctx) {
-        ctx.fillStyle = 'grey';
+        ctx.fillStyle = '#3cb4c3';
         ctx.fillRect(0, 0, 400, this.boardHeight);
 
     }
@@ -21,12 +21,13 @@ class Game {
     
 
     randomRectangle() { //generate new instance of rectangle with random width/height
-        const randLength = Math.floor(Math.random() * Math.floor(100));
-        const randWidth = Math.floor(Math.random() * Math.floor(100));
+        const randLength = Math.floor(Math.random() * Math.floor(100))+50;
+        const randWidth = Math.floor(Math.random() * Math.floor(100))+30;
 
         const randColor = COLORS[Math.floor(Math.random() * Math.floor(COLORS.length))];
+        const centerX = this.shapeXPos - Math.floor(randWidth/2.0)
 
-        return new Rectangle(this.shapeXPos, this.shapeYPos, randColor, randLength, randWidth);
+        return new Rectangle(centerX, this.shapeYPos, randColor, randLength, randWidth);
     }
 
     randomCircle() {
