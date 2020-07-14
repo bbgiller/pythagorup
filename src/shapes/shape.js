@@ -8,6 +8,7 @@ class Shape {
         this.destroyed = false;
         this.stopped= false;
     }
+
 };
 
 
