@@ -23,9 +23,9 @@ class Triangle extends Shape {
     drawTriangle(ctx) {
 
     ctx.beginPath();
-    ctx.moveTo(25, 25);
-    ctx.lineTo(105, 25);
-    ctx.lineTo(25, 105);
+    ctx.moveTo(50, 50);
+    ctx.lineTo(50, 25);
+    ctx.lineTo(25, 50);
     ctx.fill(); 
 
     }

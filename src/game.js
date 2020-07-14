@@ -30,6 +30,18 @@ class Game {
 
         return new Rectangle(this.shapeXPos, this.shapeYPos, randColor, randLength, randWidth);
     }
+
+    randomCircle() {
+        const randRadius = Math.floor(Math.random() * Math.floor(40)+20);
+
+        const randColor = COLORS[Math.floor(Math.random() * Math.floor(COLORS.length))];
+
+        return new Circle(this.shapeXPos, this.shapeYPos, randColor, randRadius);
+    }
+
+
+
+
 }
 
 module.exports = Game;

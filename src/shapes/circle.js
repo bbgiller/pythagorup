@@ -19,8 +19,8 @@ class Circle extends Shape {
     drawCircle(ctx) {
         
         ctx.beginPath();
-        ctx.arc(75, 175, 50, 0, Math.PI * 2, false);
-        ctx.fillStyle = "red";
+        ctx.arc(75, 175, this.radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = this.color;
         ctx.fill();
     }
 
