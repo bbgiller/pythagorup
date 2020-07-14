@@ -17,7 +17,12 @@ class Circle extends Shape {
 
 
     draw(ctx) {
-        
+        //draws background
+        ctx.fillStyle = '#3cb4c3';
+        ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
+
+
+
         ctx.beginPath();
         ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;

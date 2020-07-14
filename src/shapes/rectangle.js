@@ -55,9 +55,12 @@ class Rectangle extends Shape {
     }
 
     moveDown(ctx) {
-        this.unDraw(ctx);
-        this.yPos++;
-        this.draw(ctx)
+        if (this.yPos < 700) {
+
+            this.unDraw(ctx);
+            this.yPos++;
+            this.draw(ctx)
+        }
     }
 
 };

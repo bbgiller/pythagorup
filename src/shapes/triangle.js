@@ -19,6 +19,11 @@ class Triangle extends Shape {
 
     draw(ctx) {
 
+    //draws background
+    ctx.fillStyle = '#3cb4c3';
+    ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
+
+
     ctx.beginPath();
     ctx.moveTo(this.xPos, this.yPos);
     ctx.lineTo(this.xPos-this.base, this.yPos);
