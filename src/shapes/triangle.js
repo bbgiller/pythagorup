@@ -17,7 +17,7 @@ class Triangle extends Shape {
     }
 
 
-    drawTriangle(ctx) {
+    draw(ctx) {
 
     ctx.beginPath();
     ctx.moveTo(this.xPos, this.yPos);

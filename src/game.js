@@ -18,9 +18,7 @@ class Game {
 
     }
 
-    // Shapes() {
-    //     return this.randomRectangle();
-    // }
+    
 
     randomRectangle() { //generate new instance of rectangle with random width/height
         const randLength = Math.floor(Math.random() * Math.floor(100));
@@ -46,6 +44,15 @@ class Game {
         const randColor = COLORS[Math.floor(Math.random() * Math.floor(COLORS.length))];
 
         return new Triangle(this.shapeXPos, this.shapeYPos, randColor, randBase, randHeight);
+    }
+
+    randomShape() {
+        const randNum = Math.floor(Math.random() * Math.floor(3));
+
+        if (randNum === 0) return this.randomRectangle();
+        if (randNum === 1) return this.randomCircle();
+        return this.randomTriangle();
+
     }
 
 

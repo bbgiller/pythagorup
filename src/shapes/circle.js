@@ -16,7 +16,7 @@ class Circle extends Shape {
 
 
 
-    drawCircle(ctx) {
+    draw(ctx) {
         
         ctx.beginPath();
         ctx.arc(75, 175, this.radius, 0, Math.PI * 2, false);

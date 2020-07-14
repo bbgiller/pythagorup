@@ -28,7 +28,7 @@ class Rectangle extends Shape {
         )
     }
 
-    drawRectangle(ctx) {
+    draw(ctx) {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.xPos, this.yPos, this.length, this.width)
     }
