@@ -9,7 +9,7 @@ class Game {
         this.boardHeight = 800;
         this.boardWidth = 400;
         this.shapeXPos = 150;
-        this.shapeYPos = 20;
+        this.shapeYPos = 0;
     }
 
     drawCanvas(ctx) {

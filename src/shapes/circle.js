@@ -19,7 +19,7 @@ class Circle extends Shape {
     draw(ctx) {
         
         ctx.beginPath();
-        ctx.arc(75, 175, this.radius, 0, Math.PI * 2, false);
+        ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
         ctx.fill();
     }
