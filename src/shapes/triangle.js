@@ -2,14 +2,11 @@ const Shape = require('./shape');
 
 
 class Triangle extends Shape {
-    constructor(xPos, yPos, color, base, height, theta1, theta2, theta3) {
+    constructor(xPos, yPos, color, base, height) {
         super(xPos, yPos, color);
 
         this.base = base;
         this.height = height;
-        this.theta1 = theta1;
-        this.theta2 = theta2;
-        this.theta3 = theta3;
      
     }
 
@@ -23,9 +20,11 @@ class Triangle extends Shape {
     drawTriangle(ctx) {
 
     ctx.beginPath();
-    ctx.moveTo(50, 50);
-    ctx.lineTo(50, 25);
-    ctx.lineTo(25, 50);
+    ctx.moveTo(this.xPos, this.yPos);
+    ctx.lineTo(this.xPos-this.base, this.yPos);
+    ctx.lineTo(this.xPos, this.base);
+    
+    ctx.fillStyle = this.color;
     ctx.fill(); 
 
     }

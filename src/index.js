@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const game = new Game;
     const rect = game.randomRectangle();
     const circle = game.randomCircle();
-    const triangle = new Triangle(0, 0, 0, 'blue', 3, 4, 0, 0, 0);
+    const triangle = game.randomTriangle()
     // const circle = new Circle(0,0,'blue',20);
     game.drawCanvas(ctx);
-    rect.drawRectangle(ctx);
+    // rect.drawRectangle(ctx);
     triangle.drawTriangle(ctx);
     circle.drawCircle(ctx);
 })
