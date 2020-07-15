@@ -1,0 +1,15 @@
+#board {
+    display: flex;
+    transform: translate(70%);
+    border: 1px solid black;
+}
+
+#problem {
+    background-color: #c6cdd0;
+    display: flex;
+    transform: translate(70%);
+    border: 1px solid black;
+}
+#board #problem {
+    
+}

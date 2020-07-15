@@ -14,6 +14,26 @@ class Circle extends Shape {
         )
     }
 
+    areaProblem() {
+        return `Calculate the area of given circle with radius ${this.radius} `
+    }
+
+    
+
+    randomProblem() {
+        const problemNum = Math.floor(Math.random() * Math.floor(0));
+        if (problemNum === 0) return this.areaProblem();
+
+    }
+
+    displayRandomProblem(ctx) {
+        // debugger
+        ctx.fillStyle = "black";
+        ctx.font = "8pt sans-serif";
+        ctx.fillText(this.randomProblem(),20,20);
+
+    }
+
 
 
     draw(ctx) {

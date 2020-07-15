@@ -18,8 +18,7 @@ class Rectangle extends Shape {
     }
 
     areaProblem() {
-        return `Calculate the area of given rectangle with length: ${this.length} and 
-        width: ${this.width} `
+        return `Calculate the area of given rectangle with length ${this.length} and width ${this.width} `
     }
 
     perimeter() {
@@ -29,8 +28,7 @@ class Rectangle extends Shape {
     }
 
     perimeterProblem() {
-        return `Calculate the perimeter of given rectangle with length: ${this.length} and 
-        width: ${this.width} `
+        return `Calculate the perimeter of given rectangle with length ${this.length} and width ${this.width} `
     }
 
     diagonal() {
@@ -40,8 +38,7 @@ class Rectangle extends Shape {
     }
 
     diagonalProblem() {
-        return `Calculate the diagonal of given rectangle with length: ${this.length} and 
-        width: ${this.width} `
+        return `Calculate the diagonal of given rectangle with length ${this.length} and width ${this.width} `
     }
 
     randomProblem() {
@@ -60,7 +57,7 @@ class Rectangle extends Shape {
 
     draw(ctx) {
         //draws background
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = '#3cb4c3';
         ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
 
 
