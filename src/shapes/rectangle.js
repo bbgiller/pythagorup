@@ -31,8 +31,8 @@ class Rectangle extends Shape {
 
     draw(ctx) {
         //draws background
-        ctx.fillStyle = '#3cb4c3';
-        ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
+        // ctx.fillStyle = 'red';
+        // ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
 
 
         ctx.fillStyle = this.color;
@@ -51,7 +51,7 @@ class Rectangle extends Shape {
 
     unDraw(ctx) {
         // debugger
-        ctx.fillStyle = '#3cb4c3'
+        // ctx.fillStyle = 'black'
     }
 
     moveDown(ctx, stopHeight) {
