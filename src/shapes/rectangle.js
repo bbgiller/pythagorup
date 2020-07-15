@@ -54,13 +54,14 @@ class Rectangle extends Shape {
         ctx.fillStyle = '#3cb4c3'
     }
 
-    moveDown(ctx) {
-        if (this.yPos < 700) {
+    moveDown(ctx, stopHeight) {
+        if (this.yPos < stopHeight) {
 
             this.unDraw(ctx);
             this.yPos++;
             this.draw(ctx)
         }
+        return 1
     }
 
 };

@@ -48,11 +48,11 @@ class Game {
     }
 
     randomShape() {
-        const randNum = Math.floor(Math.random() * Math.floor(3));
+        const randNum = Math.floor(Math.random() * Math.floor(2));
 
         if (randNum === 0) return this.randomRectangle();
         if (randNum === 1) return this.randomCircle();
-        return this.randomTriangle();
+        // return this.randomTriangle();
 
     }
 

@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // const newShape = game.randomShape()
     // newShape.draw(ctx)
     // window.newShape = newShape
-    gameView.fall()
+    const shape = game.randomShape()
+    gameView.fall(700)
 })
 
 
