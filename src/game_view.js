@@ -10,10 +10,10 @@ class GameView {
 
     }
 
-    fall(stopHeight) {
+    fall(stopHeight, shape) {
         if(stopHeight < 1) return null;
         // debugger
-        const shape = this.game.randomShape();
+        // const shape = this.game.randomShape();
         setInterval( 
             () => shape.moveDown(this.ctx, stopHeight), 10
         )

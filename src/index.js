@@ -10,7 +10,9 @@ const GameView = require('./game_view');
 // window.Shape = Shape;
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById('board');
+    const problem = document.getElementById('problem')
     const ctx = canvas.getContext('2d');
+    const problemCtx = problem.getContext('2d');
     const game = new Game;
     const gameView = new GameView(game, ctx)
     // const rect = game.randomRectangle();
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // const circle = game.randomCircle();
     // const triangle = game.randomTriangle()
     // const circle = new Circle(0,0,'blue',20);
-    game.drawCanvas(ctx);
+    // game.drawCanvas(ctx);
     // // rect.drawRectangle(ctx);
     // triangle.drawTriangle(ctx);
     // circle.drawCircle(ctx);
@@ -26,8 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // const newShape = game.randomShape()
     // newShape.draw(ctx)
     // window.newShape = newShape
+    // game.displayRandomProblem(problemCtx)
     const shape = game.randomShape()
-    gameView.fall(700)
+    shape.displayRandomProblem(problemCtx);
+    gameView.fall(700, shape)
 })
 
 
