@@ -5,11 +5,20 @@ const Triangle = require('./shapes/triangle');
 const COLORS = ['red', 'orange', 'blue', 'green','purple', 'yellow']
 
 class Game {
-    constructor() {
+    constructor(canvas,ctx, problem, problemCtx) {
+        this.canvas = canvas;
+        this.ctx = ctx;
+        this.problem = problem;
+        this.problemCtx = problemCtx;
         this.boardHeight = 800;
         this.boardWidth = 400;
         this.shapeXPos = 200;
         this.shapeYPos = 0;
+        this.stopHeight = 800;
+
+        this.fall = this.fall.bind(this);
+        this.randomShape = this.randomShape.bind(this);
+        
     }
 
     drawCanvas(ctx) {
@@ -54,6 +63,26 @@ class Game {
         if (randNum === 1) return this.randomCircle();
         // return this.randomTriangle();
 
+    }
+    fall(ctx, shape) {
+        if(this.stopHeight < 1) return null;
+        // debugger
+        // const shape = this.game.randomShape();
+        setInterval( 
+            () => shape.moveDown(ctx, this.stopHeight), 10
+        )
+        
+        // const newHeight = stopHeight - (shape.width || shape.radius);
+        // return this.fall(newHeight)
+        
+    }
+
+
+    render() {
+        // debugger
+        const shape = this.randomShape();
+        this.fall(this.ctx, shape);
+        shape.displayRandomProblem(this.problemCtx);
     }
 
 

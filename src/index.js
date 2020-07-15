@@ -13,25 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const problem = document.getElementById('problem')
     const ctx = canvas.getContext('2d');
     const problemCtx = problem.getContext('2d');
-    const game = new Game;
-    const gameView = new GameView(game, ctx)
-    // const rect = game.randomRectangle();
-    // window.rect = rect;
-    // const circle = game.randomCircle();
-    // const triangle = game.randomTriangle()
-    // const circle = new Circle(0,0,'blue',20);
-    // game.drawCanvas(ctx);
-    // // rect.drawRectangle(ctx);
-    // triangle.drawTriangle(ctx);
-    // circle.drawCircle(ctx);
-    window.ctx = ctx;
-    // const newShape = game.randomShape()
-    // newShape.draw(ctx)
-    // window.newShape = newShape
-    // game.displayRandomProblem(problemCtx)
-    const shape = game.randomShape()
-    shape.displayRandomProblem(problemCtx);
-    gameView.fall(700, shape)
+    // debugger
+    const game = new Game(canvas, ctx, problem, problemCtx);
+    game.render()
+    
+    // const gameView = new GameView(game, ctx)
+ 
+    // const shape = game.randomShape()
+    // shape.displayRandomProblem(problemCtx);
+    // gameView.fall(700, shape)
 })
 
 
