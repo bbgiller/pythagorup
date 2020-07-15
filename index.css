@@ -1,16 +1,18 @@
 body {
-    background-image: url(webt-woman-in-math-lead.jpg.pc-adaptive.full.medium.jpg)
+    background-image: url(webt-woman-in-math-lead.jpg.pc-adaptive.full.medium.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 #board {
     display: flex;
-    transform: translate(70%);
+    transform: translate(100%);
     border: 1px solid black;
 }
 
 #problem {
     background-color: #c6cdd0;
     display: flex;
-    transform: translate(70%);
+    transform: translate(100%);
     border: 1px solid black;
 }

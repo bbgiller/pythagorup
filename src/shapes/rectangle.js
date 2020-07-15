@@ -57,7 +57,7 @@ class Rectangle extends Shape {
 
     draw(ctx) {
         //draws background
-        ctx.fillStyle = '#3cb4c3';
+        ctx.fillStyle = 'white';
         ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
 
 
@@ -81,7 +81,7 @@ class Rectangle extends Shape {
     }
 
     moveDown(ctx, stopHeight) {
-        if (this.yPos < stopHeight) {
+        if (this.yPos + this.width < 800 ) {
 
             this.unDraw(ctx);
             this.yPos++;

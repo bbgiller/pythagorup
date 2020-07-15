@@ -38,7 +38,7 @@ class Circle extends Shape {
 
     draw(ctx) {
         //draws background
-        ctx.fillStyle = '#3cb4c3';
+        ctx.fillStyle = 'white';
         ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
 
 
@@ -51,11 +51,11 @@ class Circle extends Shape {
 
     unDraw(ctx) {
         // debugger
-        ctx.fillStyle = '#3cb4c3'
+        ctx.fillStyle = 'white'
     }
 
     moveDown(ctx) {
-        if (this.yPos < 700) {
+        if (this.yPos + this.radius < 800) {
 
             this.unDraw(ctx);
             this.yPos++;
