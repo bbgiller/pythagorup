@@ -86,6 +86,7 @@ class Rectangle extends Shape {
             this.unDraw(ctx);
             this.yPos++;
             this.draw(ctx)
+            
             // ctx.translate(0,100)
         }
         return 1

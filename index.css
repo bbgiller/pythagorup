@@ -1,3 +1,7 @@
+body {
+    background-image: url(webt-woman-in-math-lead.jpg.pc-adaptive.full.medium.jpg)
+}
+
 #board {
     display: flex;
     transform: translate(70%);
@@ -9,7 +13,4 @@
     display: flex;
     transform: translate(70%);
     border: 1px solid black;
-}
-#board #problem {
-    
 }
