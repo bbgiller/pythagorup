@@ -5,7 +5,7 @@ const Triangle = require('./shapes/triangle');
 const COLORS = ['red', 'orange', 'blue', 'green','purple', 'yellow']
 
 class Game {
-    constructor(canvas,ctx, problem, problemCtx) {
+    constructor(canvas,ctx, problem, problemCtx, welcomeCtx) {
         this.canvas = canvas;
         this.ctx = ctx;
         this.problem = problem;
@@ -15,15 +15,19 @@ class Game {
         this.shapeXPos = 200;
         this.shapeYPos = 0;
         this.stopHeight = 800;
+        this.welcomeCtx = welcomeCtx
+
+        this.shapes = {};
 
         this.fall = this.fall.bind(this);
         this.randomShape = this.randomShape.bind(this);
-        
+        this.render = this.render.bind(this);
+        this.populateShapes = this.populateShapes.bind(this);
     }
 
     drawCanvas(ctx) {
-        ctx.fillStyle = '#3cb4c3';
-        ctx.fillRect(0, 0, 400, this.boardHeight);
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, 400, 800);
 
     }
 
@@ -77,12 +81,64 @@ class Game {
         
     }
 
+    welcomeScreen() {
+        this.welcomeCtx.fillStyle = 'black';
+        this.welcomeCtx.fillRect(0, 0, 400, 800);
+
+    this.welcomeCtx.font = 'italic 18px Arial';
+    this.welcomeCtx.textAlign = 'center';
+    this.welcomeCtx. textBaseline = 'middle';
+    this.welcomeCtx.fillStyle = 'white';  // a color name or by using rgb/rgba/hex values
+    this.welcomeCtx.fillText('Welcome to Pythagorup!', 200, 350);
+    this.welcomeCtx.fillText('Click anywhere to start!', 200, 450);
+    }
+
+    populateShapes() {
+        let i = 0;
+        while (i < 5) {
+            const shape = this.randomShape();
+            this.shapes[i] = (shape)
+            i++;
+        }
+        // debugger
+    }
+
+    // startGame(e) {
+    //     if (e.key ===) {
+
+    //     }
+    // }
+
 
     render() {
         // debugger
-        const shape = this.randomShape();
-        this.fall(this.ctx, shape);
-        shape.displayRandomProblem(this.problemCtx);
+        // this.ctx.fillStyle = 'black';
+        this.welcomeScreen()
+
+        this.populateShapes();
+        this.canvas.addEventListener('click', () => {
+            
+        
+        // debugger
+        
+
+        // const shape = this.randomShape()
+        // let request = requestAnimationFrame(this.render);
+       
+        // let i = 0;
+        // while (i < 5) {
+        //     this.fall(this.ctx, this.shapes[i]);
+        //     this.shapes[i].displayRandomProblem(this.problemCtx);
+        //     i++
+
+        // }
+
+        this.fall(this.ctx, this.shapes[1]);
+        this.shapes[1].displayRandomProblem(this.problemCtx);
+
+        } )
+
+        // cancelAnimationFrame(request);
     }
 
 

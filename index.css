@@ -16,3 +16,12 @@ body {
     transform: translate(100%);
     border: 1px solid black;
 }
+
+#welcome {
+    /* background-color: white; */
+    display: flex;
+    position: absolute;
+    transform: translate(100.6%);
+}
+
+

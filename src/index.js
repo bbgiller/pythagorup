@@ -9,12 +9,14 @@ const GameView = require('./game_view');
 // window.Rectangle = Rectangle;
 // window.Shape = Shape;
 document.addEventListener("DOMContentLoaded", () => {
+    const welcomeScreen = document.getElementById('welcome');
+    const welcomeCtx = welcomeScreen.getContext('2d');
     const canvas = document.getElementById('board');
     const problem = document.getElementById('problem')
     const ctx = canvas.getContext('2d');
     const problemCtx = problem.getContext('2d');
     // debugger
-    const game = new Game(canvas, ctx, problem, problemCtx);
+    const game = new Game(canvas, ctx, problem, problemCtx, welcomeCtx);
     game.render()
     
     // const gameView = new GameView(game, ctx)
