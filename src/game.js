@@ -69,12 +69,13 @@ class Game {
 
     }
     fall(ctx, shape) {
-        if(this.stopHeight < 1) return null;
+        // if(this.stopHeight < 1) return null;
         // debugger
         // const shape = this.game.randomShape();
-        setInterval( 
-            () => shape.moveDown(ctx, this.stopHeight), 10
-        )
+        // setInterval( 
+        //     () => shape.moveDown(ctx, this.stopHeight), 10
+        // )
+        shape.moveDown(ctx)
         
         // const newHeight = stopHeight - (shape.width || shape.radius);
         // return this.fall(newHeight)
@@ -91,6 +92,12 @@ class Game {
     this.welcomeCtx.fillStyle = 'white';  // a color name or by using rgb/rgba/hex values
     this.welcomeCtx.fillText('Welcome to Pythagorup!', 200, 350);
     this.welcomeCtx.fillText('Click anywhere to start!', 200, 450);
+
+    this.canvas.addEventListener('click', () => {
+            this.render()
+    } )
+
+
     }
 
     populateShapes() {
@@ -113,30 +120,12 @@ class Game {
     render() {
         // debugger
         // this.ctx.fillStyle = 'black';
-        this.welcomeScreen()
-
+        // this.welcomeScreen()
+        
         this.populateShapes();
-        this.canvas.addEventListener('click', () => {
-            
-        
-        // debugger
-        
-
-        // const shape = this.randomShape()
-        // let request = requestAnimationFrame(this.render);
-       
-        // let i = 0;
-        // while (i < 5) {
-        //     this.fall(this.ctx, this.shapes[i]);
-        //     this.shapes[i].displayRandomProblem(this.problemCtx);
-        //     i++
-
-        // }
-
         this.fall(this.ctx, this.shapes[1]);
         this.shapes[1].displayRandomProblem(this.problemCtx);
-
-        } )
+        
 
         // cancelAnimationFrame(request);
     }

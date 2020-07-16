@@ -8,6 +8,7 @@ class Rectangle extends Shape {
 
         this.length = length;
         this.width = width;
+        this.stopheight = 800;
 
     }
 
@@ -57,8 +58,8 @@ class Rectangle extends Shape {
 
     draw(ctx) {
         //draws background
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
+        // ctx.fillStyle = 'white';
+        // ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
 
 
         ctx.fillStyle = this.color;
@@ -77,19 +78,27 @@ class Rectangle extends Shape {
 
     unDraw(ctx) {
         // debugger
-        ctx.fillStyle = 'black'
+        // ctx.fillStyle = 'black'
     }
 
-    moveDown(ctx, stopHeight) {
-        if (this.yPos + this.width < 800 ) {
+    moveDown(ctx) {
+        setInterval( 
+            () => {
 
-            this.unDraw(ctx);
-            this.yPos++;
-            this.draw(ctx)
-            
-            // ctx.translate(0,100)
-        }
-        return 1
+                if (this.yPos + this.width < 800 ) {
+                    ctx.fillRect(0, 0, 400, this.yPos + this.width)
+                    // this.unDraw(ctx);
+                    this.yPos++;
+                    this.draw(ctx)
+                    
+                    
+                }
+
+            }, 10
+        )
+
+        // console.log(this.stopheight)
+        // this.stopheight -= this.width;
     }
 
 };
