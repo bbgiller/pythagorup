@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const problemCtx = problem.getContext('2d');
     // debugger
     const game = new Game(canvas, ctx, problem, problemCtx, welcomeCtx);
+    // game.answerInput()
     game.welcomeScreen()
     
     // const gameView = new GameView(game, ctx)

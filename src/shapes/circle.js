@@ -22,7 +22,7 @@ class Circle extends Shape {
 
     randomProblem() {
         const problemNum = Math.floor(Math.random() * Math.floor(0));
-        if (problemNum === 0) return this.areaProblem();
+        if (problemNum === 0) return [this.areaProblem(), this.area()];
 
     }
 

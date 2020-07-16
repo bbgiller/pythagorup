@@ -44,9 +44,9 @@ class Rectangle extends Shape {
 
     randomProblem() {
         const problemNum = Math.floor(Math.random() * Math.floor(3));
-        if (problemNum === 0) return this.areaProblem();
-        if (problemNum === 1) return this.perimeterProblem();
-        if (problemNum === 2) return this.diagonalProblem();
+        if (problemNum === 0) return [this.areaProblem(), this.area() ];
+        if (problemNum === 1) return [this.perimeterProblem(), this.perimeter()];
+        if (problemNum === 2) return [this.diagonalProblem(), this.diagonal()];
     }
 
     // displayRandomProblem(ctx) {

@@ -17,6 +17,8 @@ class Game {
         this.stopHeight = 800;
         this.welcomeCtx = welcomeCtx
 
+        this.problemAnswer = 0;
+
         this.shapes = {};
 
         this.fall = this.fall.bind(this);
@@ -125,13 +127,32 @@ class Game {
 
         ctx.fillStyle = "black";
         ctx.font = "8pt sans-serif";
-        ctx.fillText(shape.randomProblem(),20,20);
+        const randProblem = shape.randomProblem()
+        const randProbText = randProblem[0];
+        const randProbAnswer = randProblem[1];
+        ctx.fillText(randProbText,20,20);
+
+        return randProbAnswer 
 
     }
 
-    reset() {
-        this.render()
+    updateValue(e) {
+        console.log(e.target.value);
+        
+      }
+
+    answerInput() {
+        const answer = document.getElementById('answer');
+
+        answer.addEventListener('input',this.updateValue)
+
     }
+
+
+
+    // reset() {
+    //     this.render()
+    // }
 
 
 
@@ -142,7 +163,10 @@ class Game {
         
         this.populateShapes();
         this.fall(this.ctx, this.shapes[1]);
-        this.displayRandomProblem(this.problemCtx, this.shapes[1]);
+        const randProbAnswer = this.displayRandomProblem(this.problemCtx, this.shapes[1]);
+        this.problemAnswer = randProbAnswer
+        console.log(this.problemAnswer)
+        this.answerInput()
         // if(this.stopHeight < 1) {
             // this.reset()
         // }
