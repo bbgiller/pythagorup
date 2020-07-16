@@ -10,7 +10,7 @@ class Circle extends Shape {
 
     area() {
         return(
-            Math.floor( ( Math.pi * this.radius )**2 ) 
+             Math.PI * this.radius**2 
         )
     }
 
@@ -21,8 +21,7 @@ class Circle extends Shape {
     
 
     randomProblem() {
-        const problemNum = Math.floor(Math.random() * Math.floor(0));
-        if (problemNum === 0) return [this.areaProblem(), this.area()];
+        return [this.areaProblem(), this.area()];
 
     }
 
