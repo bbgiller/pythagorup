@@ -18,6 +18,7 @@ class Game {
         this.welcomeCtx = welcomeCtx
 
         this.problemAnswer = 0;
+        this.problemAnswerFunction = this.problemAnswerFunction.bind(this);
 
         this.shapes = {};
 
@@ -136,15 +137,35 @@ class Game {
 
     }
 
-    updateValue(e) {
-        console.log(e.target.value);
+    problemAnswerFunction() {
+        return this.problemAnswer;
+    }
+
+    // updateValue(e) {
+    //     debugger
+    //     const toNum = parseInt(e.target.value, 10)
+    //     console.log(`entered value: ${typeof toNum}`)
+    //     console.log(`answer: ${this.problemAnswer}`)
+    //     if(toNum === this.problemAnswer) {
+    //         console.log('Correct! Shape will destroy')
+    //     };
         
-      }
+    //   }
 
     answerInput() {
         const answer = document.getElementById('answer');
 
-        answer.addEventListener('input',this.updateValue)
+        answer.addEventListener('input',(e) => {
+            // debugger
+            const toNum = parseInt(e.target.value, 10)
+            console.log(`entered value: ${typeof toNum}`)
+            console.log(`answer: ${this.problemAnswer}`)
+
+            if(toNum === this.problemAnswer) {
+                        console.log('Correct! Shape will destroy')
+                    }
+            
+        })
 
     }
 
@@ -165,7 +186,7 @@ class Game {
         this.fall(this.ctx, this.shapes[1]);
         const randProbAnswer = this.displayRandomProblem(this.problemCtx, this.shapes[1]);
         this.problemAnswer = randProbAnswer
-        console.log(this.problemAnswer)
+        console.log(`answer in render: ${this.problemAnswer}`)
         this.answerInput()
         // if(this.stopHeight < 1) {
             // this.reset()
