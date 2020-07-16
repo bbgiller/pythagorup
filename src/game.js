@@ -119,6 +119,21 @@ class Game {
     //     }
     // }
 
+    displayRandomProblem(ctx, shape) {
+        // debugger
+        ctx.clearRect(0, 0, 400, 300);
+
+        ctx.fillStyle = "black";
+        ctx.font = "8pt sans-serif";
+        ctx.fillText(shape.randomProblem(),20,20);
+
+    }
+
+    reset() {
+        this.render()
+    }
+
+
 
     render() {
         // debugger
@@ -127,7 +142,10 @@ class Game {
         
         this.populateShapes();
         this.fall(this.ctx, this.shapes[1]);
-        this.shapes[1].displayRandomProblem(this.problemCtx);
+        this.displayRandomProblem(this.problemCtx, this.shapes[1]);
+        // if(this.stopHeight < 1) {
+            // this.reset()
+        // }
         
 
         // cancelAnimationFrame(request);

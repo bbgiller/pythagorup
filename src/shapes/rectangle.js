@@ -49,12 +49,12 @@ class Rectangle extends Shape {
         if (problemNum === 2) return this.diagonalProblem();
     }
 
-    displayRandomProblem(ctx) {
-        // debugger
-        ctx.fillStyle = "black";
-        ctx.font = "8pt sans-serif";
-        ctx.fillText(this.randomProblem(),20,20);
-    }
+    // displayRandomProblem(ctx) {
+    //     // debugger
+    //     ctx.fillStyle = "black";
+    //     ctx.font = "8pt sans-serif";
+    //     ctx.fillText(this.randomProblem(),20,20);
+    // }
 
     draw(ctx) {
         //draws background
