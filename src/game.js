@@ -69,16 +69,17 @@ class Game {
 
     }
     fall(ctx, shape) {
-        // if(this.stopHeight < 1) return null;
-        // debugger
-        // const shape = this.game.randomShape();
-        // setInterval( 
-        //     () => shape.moveDown(ctx, this.stopHeight), 10
-        // )
-        shape.moveDown(ctx)
+        console.log(this.stopHeight)
+
+        shape.moveDown(ctx, this.stopHeight)
+        this.stopHeight -= (shape.width || (2* shape.radius ))
+
+        console.log(this.stopHeight)
+
         
-        // const newHeight = stopHeight - (shape.width || shape.radius);
-        // return this.fall(newHeight)
+        
+        
+       
         
     }
 
@@ -94,6 +95,8 @@ class Game {
     this.welcomeCtx.fillText('Click anywhere to start!', 200, 450);
 
     this.canvas.addEventListener('click', () => {
+        this.welcomeCtx.fillStyle = 'white'
+        this.welcomeCtx.fillRect(0, 0, 400, 800);
             this.render()
     } )
 

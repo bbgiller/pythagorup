@@ -38,8 +38,8 @@ class Circle extends Shape {
 
     draw(ctx) {
         //draws background
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
+        // ctx.fillStyle = 'white';
+        // ctx.fillRect(0, 0, 400, 800) //will need to change dimmensions later
 
 
 
@@ -54,13 +54,25 @@ class Circle extends Shape {
         ctx.fillStyle = 'white'
     }
 
-    moveDown(ctx) {
-        if (this.yPos + this.radius < 800) {
+    moveDown(ctx, stopHeight) {
+        setInterval( 
+            () => {
 
-            this.unDraw(ctx);
-            this.yPos++;
-            this.draw(ctx)
-        }
+                if (this.yPos + this.radius < stopHeight ) {
+                    ctx.fillStyle = 'white'
+                    ctx.fillRect(0, 0, 400, this.yPos + this.radius)
+                    // this.unDraw(ctx);
+                    this.yPos++;
+                    this.draw(ctx)
+                    
+                    
+                }
+
+            }, 10
+        )
+
+        // console.log(this.stopheight)
+        // this.stopheight -= this.width;
     }
 
 };

@@ -81,11 +81,13 @@ class Rectangle extends Shape {
         // ctx.fillStyle = 'black'
     }
 
-    moveDown(ctx) {
+    moveDown(ctx, stopHeight) {
         setInterval( 
             () => {
 
-                if (this.yPos + this.width < 800 ) {
+                if (this.yPos + this.width < stopHeight ) {
+                    ctx.fillStyle = 'white'
+
                     ctx.fillRect(0, 0, 400, this.yPos + this.width)
                     // this.unDraw(ctx);
                     this.yPos++;
