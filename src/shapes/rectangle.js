@@ -14,7 +14,7 @@ class Rectangle extends Shape {
 
     area() {
         return(
-            (this.length * this.width) 
+            Math.floor(this.length * this.width) 
         )
     }
 
@@ -34,7 +34,7 @@ class Rectangle extends Shape {
 
     diagonal() {
         return(
-            (this.length**2 + this.width**2)**0.5
+            Math.floor( (this.length**2 + this.width**2)**0.5)
         )
     }
 

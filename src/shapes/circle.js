@@ -10,7 +10,7 @@ class Circle extends Shape {
 
     area() {
         return(
-             Math.PI * this.radius**2 
+             Math.floor(Math.PI * this.radius**2)
         )
     }
 

@@ -72,12 +72,34 @@ class Game {
 
     }
     fall(ctx, shape) {
+        
+
         console.log(this.stopHeight)
 
         shape.moveDown(ctx, this.stopHeight)
         this.stopHeight -= (shape.width || (2* shape.radius ))
 
         console.log(this.stopHeight)
+
+        const answer = document.getElementById('answer');
+
+        answer.addEventListener('input',(e) => {
+            // debugger
+            const toNum = parseInt(e.target.value, 10)
+            // console.log(`entered value: ${typeof toNum}`)
+            // console.log(`answer: ${this.problemAnswer}`)
+
+            if(toNum === this.problemAnswer) {
+                        console.log('destroyed');
+                        this.stopHeight = 800;
+                        console.log(`new height ${this.stopHeight}`)
+                        this.ctx.fillStyle = 'white';
+                        this.ctx.fillRect(0,0,400,800)
+                       
+                        
+            }
+          
+        })
 
         
         
@@ -97,11 +119,12 @@ class Game {
     this.welcomeCtx.fillText('Welcome to Pythagorup!', 200, 350);
     this.welcomeCtx.fillText('Click anywhere to start!', 200, 450);
 
-    this.canvas.addEventListener('click', () => {
+    setInterval( () => {
+        let shape = this.randomShape();
         this.welcomeCtx.fillStyle = 'white'
         this.welcomeCtx.fillRect(0, 0, 400, 800);
-            this.render()
-    } )
+            this.render(shape)
+    }, 10000 )
 
 
     }
@@ -152,22 +175,26 @@ class Game {
         
     //   }
 
-    answerInput() {
-        const answer = document.getElementById('answer');
+    // answerInput() {
+    //     const answer = document.getElementById('answer');
 
-        answer.addEventListener('input',(e) => {
-            // debugger
-            const toNum = parseInt(e.target.value, 10)
-            console.log(`entered value: ${typeof toNum}`)
-            console.log(`answer: ${this.problemAnswer}`)
+    //     answer.addEventListener('input',(e) => {
+    //         // debugger
+    //         const toNum = parseInt(e.target.value, 10)
+    //         // console.log(`entered value: ${typeof toNum}`)
+    //         // console.log(`answer: ${this.problemAnswer}`)
 
-            if(toNum === this.problemAnswer) {
-                        console.log('Correct! Shape will destroy')
-                    }
-            
-        })
+    //         if(toNum === this.problemAnswer) {
+    //                     console.log('destroyed')
+    //                     debugger
+                       
+                        
+    //         }
+          
+    //     })
+        
 
-    }
+    // }
 
 
 
@@ -175,19 +202,37 @@ class Game {
     //     this.render()
     // }
 
+     sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+      }
 
 
-    render() {
+
+    render(shape) {
         // debugger
         // this.ctx.fillStyle = 'black';
         // this.welcomeScreen()
         
         this.populateShapes();
-        this.fall(this.ctx, this.shapes[1]);
-        const randProbAnswer = this.displayRandomProblem(this.problemCtx, this.shapes[1]);
+        const randProbAnswer = this.displayRandomProblem(this.problemCtx, shape );
         this.problemAnswer = randProbAnswer
         console.log(`answer in render: ${this.problemAnswer}`)
-        this.answerInput()
+
+        let i = 0;
+        // while (i < 5) {
+            this.fall(this.ctx,shape);
+            // this.sleep(10000)
+            i++
+        // }
+        // if( this.answerInput() ) {
+        //     debugger
+        //     this.ctx.clearRect(0,0,400,800)
+        //     return
+        // }
         // if(this.stopHeight < 1) {
             // this.reset()
         // }

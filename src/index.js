@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // debugger
     const game = new Game(canvas, ctx, problem, problemCtx, welcomeCtx);
     // game.answerInput()
+
     game.welcomeScreen()
+    // game.render()
     
     // const gameView = new GameView(game, ctx)
  
