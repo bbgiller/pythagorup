@@ -72,7 +72,7 @@ class Game {
 
     }
     fall(ctx, shape) {
-        
+        // debugger
 
         console.log(this.stopHeight)
 
@@ -91,6 +91,7 @@ class Game {
 
             if(toNum === this.problemAnswer) {
                         console.log('destroyed');
+                        shape.break()
                         this.stopHeight = 800;
                         console.log(`new height ${this.stopHeight}`)
                         this.ctx.fillStyle = 'white';
@@ -150,11 +151,11 @@ class Game {
         ctx.clearRect(0, 0, 400, 300);
 
         ctx.fillStyle = "black";
-        ctx.font = "8pt sans-serif";
+        ctx.font = "10pt sans-serif";
         const randProblem = shape.randomProblem()
         const randProbText = randProblem[0];
         const randProbAnswer = randProblem[1];
-        ctx.fillText(randProbText,20,20);
+        ctx.fillText(randProbText,5,20);
 
         return randProbAnswer 
 

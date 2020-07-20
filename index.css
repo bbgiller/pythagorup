@@ -1,19 +1,21 @@
 body {
-    background-image: url(webt-woman-in-math-lead.jpg.pc-adaptive.full.medium.jpg);
+    /* background-image: url(webt-woman-in-math-lead.jpg.pc-adaptive.full.medium.jpg); */
+    background-color: black;
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 #board {
     display: flex;
-    transform: translate(100%);
-    border: 1px solid black;
+    transform: translate(93.5%,-1%);
+    border: 10px solid;
+    border-image: url(brick.jpg) 30 round;
 }
 
 #problem {
     background-color: #c6cdd0;
     display: flex;
-    transform: translate(100%);
+    transform: translate(220%,-1300%);
     border: 1px solid black;
 }
 
@@ -26,7 +28,11 @@ body {
 
 #answer {
     display: flex;
-    transform: translate(425%);
+    transform: translate(660%,-3230%);;
+}
+
+footer{
+    background-color: #393852;
 }
 
 

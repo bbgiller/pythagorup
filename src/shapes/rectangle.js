@@ -9,6 +9,7 @@ class Rectangle extends Shape {
         this.length = length;
         this.width = width;
         this.stopheight = 800;
+        this.broken = false;
 
     }
 
@@ -81,23 +82,33 @@ class Rectangle extends Shape {
         // ctx.fillStyle = 'black'
     }
 
+    break() {
+        this.broken = !this.broken
+    }
+
     moveDown(ctx, stopHeight) {
-        setInterval( 
-            () => {
+        if (!this.broken) {
 
-                if (this.yPos + this.width < stopHeight ) {
-                    ctx.fillStyle = 'white'
-
-                    ctx.fillRect(0, 0, 400, this.yPos + this.width)
-                    // this.unDraw(ctx);
-                    this.yPos++;
-                    this.draw(ctx)
+            setInterval( 
+                () => {
                     
-                    
-                }
+    
+                    if (this.yPos + this.width < stopHeight ) {
+                        ctx.fillStyle = 'white'
+    
+                        ctx.fillRect(0, 0, 400, this.yPos + this.width)
+                        // this.unDraw(ctx);
+                        this.yPos++;
+                        this.draw(ctx)
+                        
+                        
+                    }
+    
+                }, 10
+            )
 
-            }, 10
-        )
+
+        }
 
         // console.log(this.stopheight)
         // this.stopheight -= this.width;
